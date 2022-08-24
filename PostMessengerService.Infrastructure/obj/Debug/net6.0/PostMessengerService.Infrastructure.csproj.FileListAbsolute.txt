@@ -1,0 +1,17 @@
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Infrastructure.deps.json
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Infrastructure.runtimeconfig.json
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Infrastructure.dll
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Infrastructure.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Domain.dll
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\bin\Debug\net6.0\PostMessengerService.Domain.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.csproj.AssemblyReference.cache
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.AssemblyInfoInputs.cache
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.AssemblyInfo.cs
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.csproj.CopyComplete
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.dll
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\refint\PostMessengerService.Infrastructure.dll
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\PostMessengerService.Infrastructure.genruntimeconfig.cache
+D:\Projects\PostMessengerService\PostMessengerService.Infrastructure\obj\Debug\net6.0\ref\PostMessengerService.Infrastructure.dll

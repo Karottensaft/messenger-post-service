@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "/UbvdmNnEGmnATJXPVV3zKnTwz/DOhlIb54lGIIksz8=",
+  "Source": "PostMessengerService.WebAPI",
+  "BasePath": "_content/PostMessengerService.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

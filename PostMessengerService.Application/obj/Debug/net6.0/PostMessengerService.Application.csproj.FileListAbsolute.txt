@@ -1,0 +1,17 @@
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Application.deps.json
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Application.dll
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Application.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Domain.dll
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Infrastructure.dll
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Domain.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Application\bin\Debug\net6.0\PostMessengerService.Infrastructure.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.csproj.AssemblyReference.cache
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.AssemblyInfoInputs.cache
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.AssemblyInfo.cs
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.csproj.CoreCompileInputs.cache
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.csproj.CopyComplete
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.dll
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\refint\PostMessengerService.Application.dll
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\PostMessengerService.Application.pdb
+D:\Projects\PostMessengerService\PostMessengerService.Application\obj\Debug\net6.0\ref\PostMessengerService.Application.dll
