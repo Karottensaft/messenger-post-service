@@ -2,69 +2,68 @@
 using PostMessengerService.Domain.Dto;
 using PostMessengerService.Domain.Models;
 
-namespace PostMessengerService.Application.Middlewares
+namespace PostMessengerService.Application.Middlewares;
+
+public class PostCreationProfile : Profile
 {
-    public class PostCreationProfile : Profile
+    public PostCreationProfile()
     {
-        public PostCreationProfile()
-        {
-            CreateMap<PostCreationDto, PostModel>();
-        }
+        CreateMap<PostCreationDto, PostModel>();
     }
+}
 
-    public class PostInformationProfile : Profile
+public class PostInformationProfile : Profile
+{
+    public PostInformationProfile()
     {
-        public PostInformationProfile()
-        {
-            CreateMap<PostModel, PostInformationDto>();
-        }
+        CreateMap<PostModel, PostInformationDto>();
     }
+}
 
-    public class PostChangeProfile : Profile
+public class PostChangeProfile : Profile
+{
+    public PostChangeProfile()
     {
-        public PostChangeProfile()
-        {
-            CreateMap<PostChangeDto, PostModel>();
-        }
+        CreateMap<PostChangeDto, PostModel>();
     }
+}
 
-    public class CommentInformationProfile : Profile
+public class CommentInformationProfile : Profile
+{
+    public CommentInformationProfile()
     {
-        public CommentInformationProfile()
-        {
-            CreateMap<CommentModel, CommentInformationDto>();
-        }
+        CreateMap<CommentModel, CommentInformationDto>();
     }
+}
 
-    public class CommentCreateProfile : Profile
+public class CommentCreateProfile : Profile
+{
+    public CommentCreateProfile()
     {
-        public CommentCreateProfile()
-        {
-            CreateMap<CommentCreationDto, CommentModel>();
-        }
+        CreateMap<CommentCreationDto, CommentModel>();
     }
+}
 
-    public class CommentChangeProfile : Profile
+public class CommentChangeProfile : Profile
+{
+    public CommentChangeProfile()
     {
-        public CommentChangeProfile()
-        {
-            CreateMap<CommentChangeDto, CommentModel>();
-        }
+        CreateMap<CommentChangeDto, CommentModel>();
     }
+}
 
-    public class LikeInformationProfile : Profile
+public class LikeInformationProfile : Profile
+{
+    public LikeInformationProfile()
     {
-        public LikeInformationProfile()
-        {
-            CreateMap<LikeModel, LikeInformationDto>();
-        }
+        CreateMap<LikeModel, LikeInformationDto>();
     }
+}
 
-    public class LikeCreateProfile : Profile
+public class LikeCreateProfile : Profile
+{
+    public LikeCreateProfile()
     {
-        public LikeCreateProfile()
-        {
-            CreateMap<LikeCreationDto, LikeModel>();
-        }
+        CreateMap<LikeCreationDto, LikeModel>();
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace PostMessengerService.Domain.Dto
+﻿namespace PostMessengerService.Domain.Dto;
+
+public class LikeInformationDto
 {
-    public class LikeInformationDto
-    {
-        public string Username { get; set; }
-    }
+    public string Username { get; set; }
 }

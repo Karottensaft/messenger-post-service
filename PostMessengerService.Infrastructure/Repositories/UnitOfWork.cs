@@ -1,45 +1,44 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PostMessengerService.Infrastructure.Data;
 
-namespace PostMessengerService.Infrastructure.Repositories
+namespace PostMessengerService.Infrastructure.Repositories;
+
+public class UnitOfWork : IDisposable
 {
-    public class UnitOfWork : IDisposable
+    private readonly PostDbContext _context;
+
+    private bool _disposed;
+
+    public UnitOfWork(DbContextOptions<PostDbContext> options)
     {
-        private readonly PostDbContext _context;
+        _context = new PostDbContext(options);
+        PostRepository = new PostRepository(_context);
+        CommentRepository = new CommentRepository(_context);
+        LikeRepository = new LikeRepository(_context);
+    }
 
-        private bool _disposed;
+    public PostRepository PostRepository { get; }
 
-        public UnitOfWork(DbContextOptions<PostDbContext> options)
-        {
-            _context = new PostDbContext(options);
-            PostRepository = new PostRepository(_context);
-            CommentRepository = new CommentRepository(_context);
-            LikeRepository = new LikeRepository(_context);
-        }
+    public CommentRepository CommentRepository { get; }
 
-        public PostRepository PostRepository { get; }
+    public LikeRepository LikeRepository { get; }
 
-        public CommentRepository CommentRepository { get; }
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public LikeRepository LikeRepository { get; }
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public async Task SaveAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-                if (disposing)
-                    _context.Dispose();
-            _disposed = true;
-        }
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+            if (disposing)
+                _context.Dispose();
+        _disposed = true;
     }
 }

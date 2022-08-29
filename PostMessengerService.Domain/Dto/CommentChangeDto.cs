@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PostMessengerService.Domain.Dto
+namespace PostMessengerService.Domain.Dto;
+
+public class CommentChangeDto
 {
-    public class CommentChangeDto
-    {
-        [Required]
-        [StringLength(512, MinimumLength = 1)]
-        public string CommentContainment { get; set; }
-    }
+    [Required]
+    [StringLength(512, MinimumLength = 1)]
+    public string CommentContainment { get; set; }
 }
