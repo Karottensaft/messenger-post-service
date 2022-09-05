@@ -2,7 +2,7 @@
 
 namespace PostMessengerService.Application.Services;
 
-internal interface ICommentService
+public interface ICommentService
 {
     Task<IEnumerable<CommentInformationDto>> GerListOfCommentsByPostId(int postId);
 

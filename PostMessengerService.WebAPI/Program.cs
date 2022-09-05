@@ -1,11 +1,15 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PostMessengerService.Application.Middlewares;
 using PostMessengerService.Application.Services;
+using PostMessengerService.Domain.Models;
 using PostMessengerService.Infrastructure.Data;
 using PostMessengerService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddSwaggerGen(opt =>
 {
@@ -35,6 +39,28 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer("TokenKey", cfg =>
+    {
+        cfg.RequireHttpsMetadata = true;
+        cfg.SaveToken = true;
+        cfg.TokenValidationParameters = new TokenValidationParameters
+        {
+            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+            ValidateAudience = false,
+            ValidateIssuer = false,
+            ValidateLifetime = false,
+            RequireExpirationTime = false,
+            ClockSkew = TimeSpan.Zero,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,17 +68,22 @@ builder.Services.AddAutoMapper(typeof(PostInformationProfile), typeof(PostChange
     typeof(CommentInformationProfile), typeof(CommentChangeProfile), typeof(CommentCreateProfile),
     typeof(LikeInformationProfile), typeof(LikeCreateProfile));
 
+
 builder.Services.AddDbContext<PostDbContext>(options =>
     options.UseNpgsql(builder.Configuration
         .GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<PostRepository>();
-builder.Services.AddScoped<CommentRepository>();
-builder.Services.AddScoped<LikeRepository>();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<IUserProviderMiddleware, UserProviderMiddleware>();
+builder.Services.AddScoped<IPostRepository<PostModel>, PostRepository>();
+builder.Services.AddScoped<ICommentRepository<CommentModel>, CommentRepository>();
+builder.Services.AddScoped<ILikeRepository<LikeModel>, LikeRepository>();
 builder.Services.AddScoped<UnitOfWork>();
-builder.Services.AddScoped<PostService>();
-builder.Services.AddScoped<CommentService>();
-builder.Services.AddScoped<LikeService>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ILikeService, LikeService>();
+
 
 var app = builder.Build();
 
@@ -64,11 +95,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 //app.UseHttpsRedirection();
+
 
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 

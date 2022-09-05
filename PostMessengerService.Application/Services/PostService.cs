@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PostMessengerService.Application.Middlewares;
 using PostMessengerService.Domain.Dto;
 using PostMessengerService.Domain.Models;
 using PostMessengerService.Infrastructure.Repositories;
@@ -9,11 +10,13 @@ public class PostService : IPostService
 {
     private readonly IMapper _mapper;
     private readonly UnitOfWork _unitOfWork;
+    private readonly IUserProviderMiddleware _userProviderMiddleware;
 
-    public PostService(UnitOfWork unitOfWork, IMapper mapper)
+    public PostService(UnitOfWork unitOfWork, IMapper mapper, IUserProviderMiddleware userProviderMiddleware)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _userProviderMiddleware = userProviderMiddleware;
     }
 
     public async Task<IEnumerable<PostModel>> GerListOfPosts()
@@ -37,14 +40,14 @@ public class PostService : IPostService
     {
         var postMapped = _mapper.Map<PostModel>(postToMap);
         postMapped.CreationDate = DateTime.UtcNow;
-        postMapped.Username = "Passion";
+        postMapped.Username = _userProviderMiddleware.GetUsername();
         _unitOfWork.PostRepository.PostEntity(postMapped);
         await _unitOfWork.SaveAsync();
     }
 
     public async Task UpdatePost(PostChangeDto postChanged, int postId)
     {
-        var username = "Passion";
+        var username = _userProviderMiddleware.GetUsername();
         var post = await _unitOfWork.PostRepository.GetEntityByIdAsync(postId);
         if (username == post.Username)
         {
@@ -59,7 +62,7 @@ public class PostService : IPostService
 
     public async Task DeletePost(int postId)
     {
-        var username = "Passion";
+        var username = _userProviderMiddleware.GetUsername();
         var postToValidate = await _unitOfWork.PostRepository.GetEntityByIdAsync(postId);
 
         if (username == postToValidate.Username)

@@ -1,6 +1,6 @@
 ﻿namespace PostMessengerService.Infrastructure.Repositories;
 
-internal interface IPostRepository<T> : IDisposable
+public interface IPostRepository<T> : IDisposable
     where T : class
 {
     Task<IEnumerable<T>> GetEntityListAsync();

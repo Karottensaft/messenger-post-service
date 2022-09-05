@@ -3,7 +3,7 @@ using PostMessengerService.Domain.Models;
 
 namespace PostMessengerService.Application.Services;
 
-internal interface IPostService
+public interface IPostService
 {
     Task<IEnumerable<PostModel>> GerListOfPosts();
 

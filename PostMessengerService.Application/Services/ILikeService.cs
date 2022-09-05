@@ -2,7 +2,7 @@
 
 namespace PostMessengerService.Application.Services;
 
-internal interface ILikeService
+public interface ILikeService
 {
     Task<IEnumerable<LikeInformationDto>> GerListOfLikesByPost(int postId);
 

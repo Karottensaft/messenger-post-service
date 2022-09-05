@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PostMessengerService.Application.Middlewares;
 using PostMessengerService.Domain.Dto;
 using PostMessengerService.Domain.Models;
 using PostMessengerService.Infrastructure.Repositories;
@@ -9,11 +10,13 @@ public class LikeService : ILikeService
 {
     private readonly IMapper _mapper;
     private readonly UnitOfWork _unitOfWork;
+    private readonly IUserProviderMiddleware _userProviderMiddleware;
 
-    public LikeService(UnitOfWork unitOfWork, IMapper mapper)
+    public LikeService(UnitOfWork unitOfWork, IMapper mapper, IUserProviderMiddleware userProviderMiddleware)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _userProviderMiddleware = userProviderMiddleware;
     }
 
     public async Task<IEnumerable<LikeInformationDto>> GerListOfLikesByPost(int postId)
@@ -26,7 +29,7 @@ public class LikeService : ILikeService
     public async Task CreateLike(int postId)
     {
         var likeToMap = new LikeCreationDto();
-        likeToMap.Username = "Passion";
+        likeToMap.Username = _userProviderMiddleware.GetUsername();
         likeToMap.PostId = postId;
         var likeToValidate =
             await _unitOfWork.LikeRepository.GetEntityByUsernameAndPostIdAsync(likeToMap.Username, likeToMap.PostId);
@@ -34,7 +37,7 @@ public class LikeService : ILikeService
         if (likeToValidate == null)
         {
             var likeMapped = _mapper.Map<LikeModel>(likeToMap);
-            likeMapped.Username = "Passion";
+            likeMapped.Username = _userProviderMiddleware.GetUsername();
             likeMapped.PostId = postId;
             likeMapped.CreationDate = DateTime.UtcNow;
             _unitOfWork.LikeRepository.PostEntity(likeMapped);
@@ -48,7 +51,7 @@ public class LikeService : ILikeService
 
     public async Task DeleteLike(int likeId)
     {
-        var username = "Passion";
+        var username = _userProviderMiddleware.GetUsername();
         var likeToValidate = await _unitOfWork.PostRepository.GetEntityByIdAsync(likeId);
 
         if (username == likeToValidate.Username)

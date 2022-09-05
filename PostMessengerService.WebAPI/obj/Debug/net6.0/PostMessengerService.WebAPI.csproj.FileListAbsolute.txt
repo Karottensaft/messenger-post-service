@@ -41,3 +41,11 @@ D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Po
 D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\PostMessengerService.Application.pdb
 D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\PostMessengerService.Domain.pdb
 D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\PostMessengerService.Infrastructure.pdb
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\PostMessengerService\PostMessengerService.WebAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

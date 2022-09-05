@@ -1,6 +1,6 @@
 ﻿namespace PostMessengerService.Infrastructure.Repositories;
 
-internal interface ICommentRepository<T> : IDisposable
+public interface ICommentRepository<T> : IDisposable
     where T : class
 {
     Task<IEnumerable<T>> GetEntityListAsync();

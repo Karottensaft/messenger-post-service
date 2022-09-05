@@ -15,6 +15,7 @@ public class CommentController : ControllerBase
         _commentService = commentService;
     }
 
+    [Authorize(AuthenticationSchemes = "TokenKey")]
     [HttpGet("comment/{postId}/comments")]
     public async Task<IEnumerable<CommentInformationDto>> GetListOfCommentsByPost(int postId)
     {
@@ -22,6 +23,7 @@ public class CommentController : ControllerBase
         return comment;
     }
 
+    [Authorize(AuthenticationSchemes = "TokenKey")]
     [HttpPost("user/comment-create")]
     public async Task<CommentCreationDto> PostComment(CommentCreationDto comment, int postId)
     {
@@ -29,6 +31,7 @@ public class CommentController : ControllerBase
         return comment;
     }
 
+    [Authorize(AuthenticationSchemes = "TokenKey")]
     [HttpPut("comment/comment-change")]
     public async Task<CommentChangeDto> PutComment(CommentChangeDto comment, int commentId)
     {
@@ -36,13 +39,14 @@ public class CommentController : ControllerBase
         return comment;
     }
 
+    [Authorize(AuthenticationSchemes = "TokenKey")]
     [HttpDelete("comment/delete")]
     public async Task DeleteComment(int commentId)
     {
         await _commentService.DeleteComment(commentId);
     }
 
-    [Authorize(Roles = "admin")]
+    [Authorize(AuthenticationSchemes = "TokenKey", Roles = "admin")]
     [HttpDelete("comment/delete-all")]
     public async Task DeleteAllComments(int postId)
     {
